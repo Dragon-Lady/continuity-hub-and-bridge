@@ -1,11 +1,11 @@
 # continuity-hub-and-bridge
 
-**Phone / Android chat seat** for James — not the cottage, not a work lane.
+**Demo only.** Public stub for the continuity hub + bridge idea.
 
-When you wake here from the phone (away from home, or sleepy off-laptop), read:
+This repository is **not** a live personal cottage, not a dump of private notes, and not a source of truth.
 
-→ **[`PHONE_WAKE.md`](PHONE_WAKE.md)**
+For the architecture shape and how to build your own (safely), see the synthetic twin:
 
-Cottage (journal + projects + identity Path) lives on the laptop main lane. This public stub exists so Android cloud can still open a door when the repo picker can’t attach cottage.
+→ [`continuity-showcase-vault`](https://github.com/Dragon-Lady/continuity-showcase-vault)
 
-Demo architecture (synthetic twin only): [`continuity-showcase-vault`](https://github.com/Dragon-Lady/continuity-showcase-vault).
+Private Path / cottage markdown stays on your machine. Stickies are crumbs. Viewers never become a second write path.
