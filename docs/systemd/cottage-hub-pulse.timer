@@ -1,0 +1,13 @@
+[Unit]
+Description=Cottage continuity hub pulse three times a day
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+OnCalendar=*-*-* 15:00:00
+OnCalendar=*-*-* 21:00:00
+OnBootSec=5min
+Persistent=true
+AccuracySec=2min
+
+[Install]
+WantedBy=timers.target
