@@ -1,0 +1,4 @@
+
+# Local Push Guard lists (never publish the names)
+.push-guard-private-paths
+.push-guard-blocked-terms
