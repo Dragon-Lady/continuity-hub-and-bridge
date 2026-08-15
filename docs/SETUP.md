@@ -13,7 +13,7 @@ Keep a small allowlist, for example:
 | Small lane delta | `memory/cli/lane_state.md` |
 | Optional host brief | `HOST.md` |
 
-Health / sacred journal: watch **meta only** (exists, hash, mtime) or do not watch them at all on a public demo.
+Private journals: watch **meta only** (exists, hash, mtime) or do not watch them at all on a public demo.
 
 ## 2. Hub state
 
