@@ -17,24 +17,26 @@ Typical JSON fields:
 - `sync.lanes` — primary lanes connected  
 - `skipped` — includes `x` unless explicitly included  
 
+Example lane ids in docs: `cli`, `ide`, `chat`, `voice`, `phone`. Use your own names.
+
 ## Timer
 
 User units (no root):
 
 ```
-~/.config/systemd/user/cottage-hub-pulse.service
-~/.config/systemd/user/cottage-hub-pulse.timer
+~/.config/systemd/user/hub-pulse.service
+~/.config/systemd/user/hub-pulse.timer
 ```
 
 Calendars in the example units: **09:00, 15:00, 21:00** local, plus **5 minutes after boot**. `Persistent=true` so a missed beat runs when the machine is back.
 
 ```bash
-systemctl --user enable --now cottage-hub-pulse.timer
-systemctl --user list-timers cottage-hub-pulse.timer
-journalctl --user -u cottage-hub-pulse.service -n 50
+systemctl --user enable --now hub-pulse.timer
+systemctl --user list-timers hub-pulse.timer
+journalctl --user -u hub-pulse.service -n 50
 ```
 
-Example unit files: [`systemd/`](systemd/). Point `COTTAGE_ROOT` and `ExecStart` at your hub launcher.
+Example unit files: [`systemd/`](systemd/). Point `SOT_ROOT` and `ExecStart` at your hub launcher.
 
 ## Non-goals
 

@@ -1,8 +1,0 @@
-[Unit]
-Description=Cottage continuity hub pulse (watch + inbound crumbs + lane sync)
-After=network-online.target
-
-[Service]
-Type=oneshot
-Environment=COTTAGE_ROOT=%h/cottage
-ExecStart=%h/.local/bin/hub pulse

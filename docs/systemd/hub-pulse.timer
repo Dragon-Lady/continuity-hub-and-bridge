@@ -1,5 +1,5 @@
 [Unit]
-Description=Cottage continuity hub pulse three times a day
+Description=Continuity hub pulse three times a day
 
 [Timer]
 OnCalendar=*-*-* 09:00:00

@@ -1,0 +1,8 @@
+[Unit]
+Description=Continuity hub pulse (watch + inbound crumbs + lane sync)
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=SOT_ROOT=%h/sot
+ExecStart=%h/.local/bin/hub pulse

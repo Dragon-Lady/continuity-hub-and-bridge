@@ -1,8 +1,8 @@
 # Continuity hub and bridge
 
-Demo / setup notes for a **cottage-style continuity hub**: one markdown source of truth on disk, a small hub that revisions and secret-scans it, lane adapters that fan crumbs out, and one MCP surface so Grok.com can **read left-off** and **write a closeout** without dumping the whole vault.
+Demo / setup notes for a **continuity hub**: one markdown source of truth on disk, a small hub that revisions and secret-scans it, lane adapters that fan crumbs out, and one MCP surface so Grok.com can **read left-off** and **write a closeout** without dumping the whole vault.
 
-This repository is documentation. It is **not** a live cottage and it does not contain personal files.
+This repository is documentation. It is **not** a live workspace and it does not contain personal files.
 
 ## What problem this solves
 
@@ -28,7 +28,7 @@ Grok.com **cannot scrape chats**. There is no API to pull the conversation into 
 
 Inbound from chat only happens when the connector **calls a write tool** (`continuity_closeout` or a small note tool). If you want that to be automatic, the model has to invoke the tool. The hub cannot go fetch the thread.
 
-Outbound (cottage → crumbs / paste card / status) **can** run on a timer. That is the pulse below.
+Outbound (disk SoT → crumbs / paste card / status) **can** run on a timer. That is the pulse below.
 
 ## Safety defaults
 
@@ -43,13 +43,13 @@ Outbound (cottage → crumbs / paste card / status) **can** run on a timer. That
 Local launcher example:
 
 ```bash
-export COTTAGE_ROOT="$HOME/cottage"   # your SoT folder
-export PYTHONPATH="$COTTAGE_ROOT"
+export SOT_ROOT="$HOME/sot"   # your markdown SoT folder
+export PYTHONPATH="$SOT_ROOT"
 hub status
 hub pulse          # one bidirectional beat
 hub sync           # rev++ if dirty + connect primary lanes
 hub pull --lane cli
-hub closeout --lane grok.com --left-off "…" --next "…"
+hub closeout --lane chat --left-off "…" --next "…"
 ```
 
 `hub pulse` does:
@@ -65,11 +65,11 @@ User systemd (no root). Units live in [`docs/systemd/`](docs/systemd/).
 
 ```bash
 # 09:00 / 15:00 / 21:00 local + 5 minutes after login
-install -m 644 docs/systemd/cottage-hub-pulse.service ~/.config/systemd/user/
-install -m 644 docs/systemd/cottage-hub-pulse.timer   ~/.config/systemd/user/
+install -m 644 docs/systemd/hub-pulse.service ~/.config/systemd/user/
+install -m 644 docs/systemd/hub-pulse.timer   ~/.config/systemd/user/
 systemctl --user daemon-reload
-systemctl --user enable --now cottage-hub-pulse.timer
-systemctl --user list-timers cottage-hub-pulse.timer
+systemctl --user enable --now hub-pulse.timer
+systemctl --user list-timers hub-pulse.timer
 ```
 
 Manual beat anytime: `hub pulse`.
